@@ -16,6 +16,8 @@ public class Ablak extends javax.swing.JFrame {
      */
     public Ablak() {
         initComponents();
+        setTitle("Alapműveletek");
+        ok.setEnabled(false);
     }
 
     /**
@@ -31,19 +33,19 @@ public class Ablak extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        muvelet = new javax.swing.JLabel();
+        varteredmeny = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        kerdes = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        probalkozas = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        szazalek = new javax.swing.JLabel();
+        ok = new javax.swing.JButton();
+        ujfeladat = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        visszajelzes = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
@@ -58,19 +60,21 @@ public class Ablak extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("12 + 37 =");
+        varteredmeny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                varteredmenyActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Kérdés:");
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("1");
+        kerdes.setBackground(new java.awt.Color(255, 255, 255));
+        kerdes.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setText("Próbálkozások száma:");
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("1");
+        probalkozas.setBackground(new java.awt.Color(255, 255, 255));
+        probalkozas.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,18 +92,26 @@ public class Ablak extends javax.swing.JFrame {
 
         jLabel7.setText("Százalékos arány:");
 
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("100%");
+        szazalek.setBackground(new java.awt.Color(255, 255, 255));
+        szazalek.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton2.setText("OK");
+        ok.setText("OK");
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Új feladat");
+        ujfeladat.setText("Új feladat");
+        ujfeladat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ujfeladatActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Visszajelzés:");
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Jó");
+        visszajelzes.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -116,30 +128,30 @@ public class Ablak extends javax.swing.JFrame {
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                                .addComponent(muvelet, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(varteredmeny, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2)
+                                .addComponent(ok)
                                 .addGap(27, 27, 27)
                                 .addComponent(jLabel4)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(szazalek, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                            .addComponent(probalkozas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kerdes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(104, 104, 104))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(104, 104, 104)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ujfeladat, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(58, 58, 58)
                                 .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(visszajelzes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,18 +159,18 @@ public class Ablak extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(kerdes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(probalkozas)
+                    .addComponent(muvelet)
+                    .addComponent(varteredmeny, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ok))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(szazalek))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -167,10 +179,10 @@ public class Ablak extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
+                            .addComponent(visszajelzes)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ujfeladat, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))))
         );
 
@@ -206,6 +218,33 @@ public class Ablak extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
+
+    private void ujfeladatActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        muvelet.setText("4/2=");
+        ok.setEnabled(true);
+    }                                         
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {                                   
+   
+        String eredmeny = varteredmeny.getText().trim();
+    String valasz = "2";
+        if (eredmeny.equals(valasz)) {
+           kerdes.setText("1");
+           probalkozas.setText("1");
+           szazalek.setText("100%");
+           visszajelzes.setText("Jó");
+        }
+        else {
+        kerdes.setText("1");
+           probalkozas.setText("1");
+           szazalek.setText("0%");
+           visszajelzes.setText("Rossz");
+        }
+    }                                  
+
+    private void varteredmenyActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+    }                                            
 
     /**
      * @param args the command line arguments
@@ -243,17 +282,10 @@ public class Ablak extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu5;
@@ -264,6 +296,13 @@ public class Ablak extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel kerdes;
+    private javax.swing.JLabel muvelet;
+    private javax.swing.JButton ok;
+    private javax.swing.JLabel probalkozas;
+    private javax.swing.JLabel szazalek;
+    private javax.swing.JButton ujfeladat;
+    private javax.swing.JTextField varteredmeny;
+    private javax.swing.JLabel visszajelzes;
     // End of variables declaration                   
 }
