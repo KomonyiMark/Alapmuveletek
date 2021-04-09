@@ -5,6 +5,8 @@
  */
 package orai0408;
 
+import java.util.Random;
+
 /**
  *
  * @author Win10
@@ -47,6 +49,10 @@ public class Ablak extends javax.swing.JFrame {
         visszajelzes = new javax.swing.JLabel();
         probalkozas = new javax.swing.JLabel();
         lbCim = new javax.swing.JLabel();
+        lbOsztando = new javax.swing.JLabel();
+        lbMuvelet = new javax.swing.JLabel();
+        lbOszto = new javax.swing.JLabel();
+        lbJel = new javax.swing.JLabel();
         mbMenuBar = new javax.swing.JMenuBar();
         mMenu = new javax.swing.JMenu();
         mSzorzas = new javax.swing.JMenu();
@@ -170,6 +176,8 @@ public class Ablak extends javax.swing.JFrame {
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
+        lbJel.setText("=");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -178,15 +186,24 @@ public class Ablak extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pnPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbMuveletek, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lbMuveletek, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                .addGap(94, 94, 94))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lbOsztando)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbMuvelet)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbOszto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbJel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(tfVartEredmeny, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btOk)
-                        .addGap(114, 114, 114)))
+                        .addComponent(btOk))
+                    .addComponent(pnPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
@@ -207,7 +224,11 @@ public class Ablak extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbMuveletek)
                             .addComponent(tfVartEredmeny, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btOk))
+                            .addComponent(btOk)
+                            .addComponent(lbOsztando)
+                            .addComponent(lbMuvelet)
+                            .addComponent(lbOszto)
+                            .addComponent(lbJel))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -226,6 +247,11 @@ public class Ablak extends javax.swing.JFrame {
         mMenu.add(mSzorzas);
 
         mOsztas.setText("Osztás");
+        mOsztas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mOsztasActionPerformed(evt);
+            }
+        });
         mMenu.add(mOsztas);
 
         mKivovas.setText("Kivonás");
@@ -262,26 +288,64 @@ public class Ablak extends javax.swing.JFrame {
     }//GEN-LAST:event_tfVartEredmenyActionPerformed
 
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
-               String eredmeny = tfVartEredmeny.getText().trim();
-    String valasz = "2";
-        if (eredmeny.equals(valasz)) {
-           kerdes.setText("1");
-           probalkozas.setText("1");
-           szazalek.setText("100%");
-           visszajelzes.setText("Jó");
+//               String eredmeny = tfVartEredmeny.getText().trim();
+//    String valasz = "2";
+//        if (eredmeny.equals(valasz)) {
+//           kerdes.setText("1");
+//           probalkozas.setText("1");
+//           szazalek.setText("100%");
+//           visszajelzes.setText("Jó");
+//        }
+//        else {
+//        kerdes.setText("1");
+//           probalkozas.setText("1");
+//           szazalek.setText("0%");
+//           visszajelzes.setText("Rossz");
+//        }
+
+
+int oszto = Integer.parseInt(lbOszto.getText());
+int osztando = Integer.parseInt(lbOsztando.getText());
+int eredmeny = osztando / oszto;
+int valasz = Integer.parseInt(tfVartEredmeny.getText());
+int kerdesstat = 0;
+int probalkozasstat = 0;
+int szazalekstat = 0;
+
+
+        System.out.println(oszto);
+        System.out.println(osztando);
+        System.out.println(eredmeny);
+        System.out.println(valasz);
+        
+        if (eredmeny == valasz) {
+             kerdesstat++;
+            probalkozasstat++;
+            szazalek.setText("100%");
+            probalkozas.setText("1");
+            kerdes.setText("1");
+            visszajelzes.setText("Jó");
+           
+        }else{
+              kerdesstat++;
+            probalkozasstat++;
+          szazalek.setText("0%");
+            probalkozas.setText("1");
+            kerdes.setText("1");
+            visszajelzes.setText("Rossz");
         }
-        else {
-        kerdes.setText("1");
-           probalkozas.setText("1");
-           szazalek.setText("0%");
-           visszajelzes.setText("Rossz");
-        }
+
     }//GEN-LAST:event_btOkActionPerformed
 
     private void btFeladatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFeladatActionPerformed
-            lbMuveletek.setText("4/2=");
-        btOk.setEnabled(true);
+//           lbMuveletek.setText("4/2=");
+       btOk.setEnabled(true);
+        osztas();
     }//GEN-LAST:event_btFeladatActionPerformed
+
+    private void mOsztasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mOsztasActionPerformed
+       
+    }//GEN-LAST:event_mOsztasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,8 +389,12 @@ public class Ablak extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel kerdes;
     private javax.swing.JLabel lbCim;
+    private javax.swing.JLabel lbJel;
     private javax.swing.JLabel lbKerdesCim;
+    private javax.swing.JLabel lbMuvelet;
     private javax.swing.JLabel lbMuveletek;
+    private javax.swing.JLabel lbOsztando;
+    private javax.swing.JLabel lbOszto;
     private javax.swing.JLabel lbProbalkozasCim;
     private javax.swing.JLabel lbSzazalekCim;
     private javax.swing.JLabel lbVisszajelzesCim;
@@ -345,4 +413,23 @@ public class Ablak extends javax.swing.JFrame {
     private javax.swing.JTextField tfVartEredmeny;
     private javax.swing.JLabel visszajelzes;
     // End of variables declaration//GEN-END:variables
+
+    private void osztas() {
+        boolean oszhato_e=false;
+        Random rnd = new Random();
+        int also=0;
+        int felso=100;
+         int osztando = rnd.nextInt(felso-also)+also;
+        int oszto;
+        do {            
+            oszto= rnd.nextInt(felso-also)+also+1;
+            if (osztando%oszto == 0) {
+                oszhato_e=true;
+            }
+        } while (!oszhato_e);
+        lbOszto.setText(oszto + "");
+        lbOsztando.setText(osztando + "");
+       lbMuvelet.setText("/");
+       
+    }
 }
